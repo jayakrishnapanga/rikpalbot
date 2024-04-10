@@ -1,0 +1,25 @@
+/* chat.css */
+
+.chat-container {
+    height: 88vh; /* Set the height of the chat container to 85% of viewport height */
+    overflow-y: auto; /* Add vertical scroll when necessary */
+  }
+  
+  .direct-chat-messages {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Fill the entire height of the chat container */
+  }
+  
+  .direct-chat-msg {
+    margin-bottom: 10px; /* Add margin between each message */
+  }
+  
+  .direct-chat-infos {
+    margin-bottom: 5px; /* Add margin below the chat info */
+  }
+  
+  .direct-chat-text {
+    word-wrap: break-word; /* Allow long messages to wrap */
+  }
+  

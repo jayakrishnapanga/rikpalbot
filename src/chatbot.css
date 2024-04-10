@@ -1,0 +1,54 @@
+
+ /* chatbot-container styles */
+.chatbot-container {
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* card styles */
+.card {
+  width: 90%;
+  max-width: 800px; /* Adjust as needed */
+  height: 90%;
+  max-height: 90vh; /* Adjust as needed */
+  overflow: hidden; /* Hide overflow to prevent extra scrollbars */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* direct-chat styles */
+.direct-chat {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* direct-chat-messages styles */
+.direct-chat-messages {
+  flex: 1; /* Fill remaining space */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* chat messages container */
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Adjust as needed */
+  padding: 10px;
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* chat message styles */
+.direct-chat-msg {
+  background: #f2f2f2;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* chat message text styles */
+.direct-chat-text {
+  word-break: break-word; /* Break long words */
+}

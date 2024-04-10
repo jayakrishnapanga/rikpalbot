@@ -1,0 +1,16 @@
+.footer-container {
+  margin: 0 160px;
+  margin-bottom: 5px;
+}
+
+.input-group {
+  width: 100%; /* Ensure the input group takes up the full width */
+}
+
+.form-control {
+  border-radius: 20px 0 0 20px; /* Rounded corners on the left */
+}
+
+.btn-primary {
+  border-radius: 0 20px 20px 0; /* Rounded corners on the right */
+}
