@@ -6,7 +6,7 @@ export async function get_answer(updatedHistory) {
             'question': updatedHistory,
         };
         // console.log(requestBody)
-        let responce = await axios.post(`https://rikpalbotbackend.vercel.app/api/getsearch`, requestBody)
+        let responce = await axios.post(`/api/getsearch`, requestBody)
         // console.log(responce)
         // console.log(requestBody)
         let data = responce.data;
