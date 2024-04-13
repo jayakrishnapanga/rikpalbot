@@ -217,7 +217,7 @@ const ChatBot = () => {
       if (data.Normal && data.Normal.length > 0 && data.Normal[0]['Your query']) {
         botResponse = { role: 'assistant', content: data.Normal[0]['Your query'] };
       } else {
-        botResponse = { role: 'assistant', content: message }; // Use the user input as bot response
+        botResponse = { role: 'assistant', content: message };
       }
 
       const msgBotResponse = { role: 'assistant', content: data.Normal };
