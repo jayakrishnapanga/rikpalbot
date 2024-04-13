@@ -6,19 +6,19 @@ export async function get_answer(updatedHistory) {
             'question': updatedHistory,
         };
         // console.log(requestBody)
-        let responce = await axios.post(`http://localhost:4000/api/getAnyInformation`, requestBody)
+        let responce = await axios.post(`/api/getsearch`, requestBody)
         // console.log(responce)
         // console.log(requestBody)
         let data = responce.data;
-        if (data?.Normal?.length >= 3 || data?.Graph?.length >= 3) {
+        if (data?.data?.length >= 3 || data?.Graph?.length >= 3) {
             let newmess = {
                 'role': 'assistant',
-                'content': data?.Normal !== undefined ? data?.Normal[0]['Your query'] : data?.Graph[0]['Your query']
+                'content': data?.data !== undefined ? data?.data[0]['Your query'] : data?.Graph[0]['Your query']
             }
 
         }
-        if (data.Normal !== undefined) {
-            data = data.Normal
+        if (data.data !== undefined) {
+            data = data.data
             if (data.length === 1) {
                 return { "Normal": data[data.length - 1] }
             }

@@ -150,7 +150,7 @@ import '../chatFooter.css'; // Import the CSS file
 
 import React, { useState } from 'react';
 import { FaTelegramPlane } from 'react-icons/fa'; 
-import { get_answer } from '../BackendConnection/CallChatGpt'; 
+import { get_answer } from '../BackendConnection/ApiCall'; 
 
 const Footer = ({ sendMessage }) => {
     const [input, setInput] = useState('');
@@ -160,6 +160,7 @@ const Footer = ({ sendMessage }) => {
         if (input.length === 0 || loader) return;
 
         try {
+            setInput('');
             setLoader(true); 
             await sendMessage(input);
         } catch (error) {
@@ -186,7 +187,7 @@ const Footer = ({ sendMessage }) => {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleEnter}
-                    placeholder="Type Message ..."
+                    placeholder="Message Rikpal..."
                     className="form-control"
                 />
                 <span className="input-group-append">

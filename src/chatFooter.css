@@ -1,16 +1,23 @@
 .footer-container {
-  margin: 0 160px;
-  margin-bottom: 5px;
+  margin: 0 200px 10px 200px;
+  padding:0px;
 }
 
 .input-group {
-  width: 100%; /* Ensure the input group takes up the full width */
+  width: 100%; 
 }
 
 .form-control {
-  border-radius: 20px 0 0 20px; /* Rounded corners on the left */
+  border-radius: 20px 0 0 20px;
 }
 
 .btn-primary {
-  border-radius: 0 20px 20px 0; /* Rounded corners on the right */
+  border-radius: 0 20px 20px 0; 
 }
+
+
+.footer-container {
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+  /* Remove any margin or padding that might push the content up */
+}
+

@@ -198,23 +198,28 @@ import React, { useState } from 'react';
 import ChatHeader from './ChatHeader';
 import Chat from './chat';
 import Footer from './ChatFooter';
-import '../chatbot.css'
-import { get_answer } from '../BackendConnection/CallChatGpt'; // Import get_answer function
+import '../chatbot.css';
+import { get_answer } from '../BackendConnection/ApiCall'; // Import get_answer function
 
 const ChatBot = () => {
   const [messages, setMessages] = useState([]);
   const [conversationHistory, setConversationHistory] = useState([]);
 
- 
   const sendMessage = async (message) => {
     try {
       const userMessage = { role: 'user', content: message };
       setConversationHistory(prevConversation => [...prevConversation, userMessage]);
-
       setMessages(userMessage);
 
       const data = await get_answer([...conversationHistory, userMessage]);
-      const botResponse = { role: 'assistant', content: data.Normal[0]['Your query'] };
+      let botResponse = {};
+
+      if (data.Normal && data.Normal.length > 0 && data.Normal[0]['Your query']) {
+        botResponse = { role: 'assistant', content: data.Normal[0]['Your query'] };
+      } else {
+        botResponse = { role: 'assistant', content: message }; // Use the user input as bot response
+      }
+
       const msgBotResponse = { role: 'assistant', content: data.Normal };
       setConversationHistory(prevConversation => [...prevConversation, botResponse]);
       setMessages(msgBotResponse);
@@ -222,8 +227,7 @@ const ChatBot = () => {
       console.error("Error getting response:", error);
     }
   };
-  
-  
+
   return (
     <div className="chatbot-container">
       <div className="card card-danger direct-chat direct-chat-danger">
@@ -237,3 +241,50 @@ const ChatBot = () => {
 
 export default ChatBot;
 
+
+// import React, { useState } from 'react';
+// import ChatHeader from './ChatHeader';
+// import Chat from './chat';
+// import Footer from './ChatFooter';
+// import '../chatbot.css'
+// import { get_answer } from '../BackendConnection/CallChatGpt'; // Import get_answer function
+
+// const ChatBot = () => {
+//   const [messages, setMessages] = useState([]);
+//   const [conversationHistory, setConversationHistory] = useState([]);
+
+
+//   const sendMessage = async (message) => {
+//     try {
+//       const userMessage = { role: 'user', content: message };
+//       conversationHistory.push(conversationHistory)
+//       setConversationHistory(conversationHistory)
+
+//       setMessages(userMessage);
+
+//       const data = await get_answer(conversationHistory);
+//       if (data?.Normal[0]['Your query']) {
+//         const botResponse = { role: 'assistant', content: data.Normal[0]['Your query'] };
+//         conversationHistory.push(botResponse)
+//         setConversationHistory(conversationHistory)
+//       }
+//       const msgBotResponse = { role: 'assistant', content: data.Normal };
+//       setMessages(msgBotResponse);
+//     } catch (error) {
+//       console.error("Error getting response:", error);
+//     }
+//   };
+
+
+//   return (
+//     <div className="chatbot-container">
+//       <div className="card card-danger direct-chat direct-chat-danger">
+//         <ChatHeader />
+//         <Chat messages={messages} />
+//         <Footer sendMessage={sendMessage} />
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default ChatBot;
