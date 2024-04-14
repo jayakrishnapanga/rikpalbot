@@ -58,7 +58,7 @@ export async function get_answer(updatedHistory) {
         }
     };
     try {
-        let response = await axios.post(`43.205.255.1/8080/api/getsearch`, requestBody, config);
+        let response = await axios.post(`https://rikpalbotbackend.vercel.app/api/getsearch`, requestBody, config);
         let data = response.data;
 
         if (data.data || data.Graph) {
