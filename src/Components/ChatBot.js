@@ -212,6 +212,7 @@ const ChatBot = () => {
       setMessages(userMessage);
 
       const data = await get_answer([...conversationHistory, userMessage]);
+      console.log(data)
       let botResponse = {};
 
       if (data.Normal && data.Normal.length > 0 && data.Normal[0]['Your query']) {
@@ -220,7 +221,7 @@ const ChatBot = () => {
         botResponse = { role: 'assistant', content: message }; // Use the user input as bot response
       }
 
-      const msgBotResponse = { role: 'assistant', content: data.Normal };
+      const msgBotResponse = { role: 'assistant', content: data };
       setConversationHistory(prevConversation => [...prevConversation, botResponse]);
       setMessages(msgBotResponse);
     } catch (error) {

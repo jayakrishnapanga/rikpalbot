@@ -37,3 +37,16 @@
   margin: 90px;
   text-align: center;
 }
+
+
+.chart-container {
+  width: 100%;  
+  margin-top: 20px; 
+}
+
+
+.mixed-chart {
+  width: 100%;  
+  max-width: 800px; 
+  margin: auto;  
+}
