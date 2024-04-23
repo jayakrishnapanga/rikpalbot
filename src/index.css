@@ -13,3 +13,82 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+*, *::before, *::after {
+  box-sizing: border-box; /* Apply universally */
+}
+
+
+button, a, input[type="submit"], .clickable-element {
+  cursor: pointer; /* Ensures the cursor is a pointer on desktop browsers */
+}
+
+
+/* Base styles for all devices */
+.body {
+  font-size: 16px;
+}
+
+/* Smaller devices (phones, less than 768px) */
+@media (max-width: 767px) {
+  .body {
+    font-size: 14px;
+  }
+}
+
+/* Larger devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .body {
+    font-size: 16px;
+  }
+}
+
+
+/* Base styles for all devices */
+.body {
+  font-size: 16px;
+}
+
+/* Smaller devices (phones, less than 768px) */
+@media (max-width: 767px) {
+  .body {
+    font-size: 14px;
+  }
+}
+
+/* Larger devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .body {
+    font-size: 16px;
+  }
+}
+
+
+/* Styles for mobile devices */
+.menu {
+  display: block;
+  background-color: #333;
+}
+
+/* Styles for desktop */
+@media (min-width: 1024px) {
+  .menu {
+    display: flex;
+  }
+}
+
+
+/* Increase button size for better touch interaction on small devices */
+@media (max-width: 767px) {
+  .button {
+    padding: 12px 24px;
+  }
+}
+
+
+@media (orientation: landscape) {
+  .sidebar {
+    width: 250px;
+  }
+}

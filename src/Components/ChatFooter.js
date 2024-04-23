@@ -148,20 +148,81 @@ import '../chatFooter.css'; // Import the CSS file
 // export default Footer;
 
 
+// import React, { useState } from 'react';
+// import { FaTelegramPlane } from 'react-icons/fa'; 
+// import { get_answer } from '../BackendConnection/ApiCall'; 
+
+// const Footer = ({ sendMessage }) => {
+//     const [input, setInput] = useState('');
+//     const [loader, setLoader] = useState(false); 
+
+//     const submit = async () => {
+//         if (input.length === 0 || loader) return;
+
+//         try {
+//             setInput('');
+//             setLoader(true); 
+//             await sendMessage(input);
+//         } catch (error) {
+//             console.error("Error sending message:", error);
+//         } finally {
+//             setLoader(false);
+//         }
+
+//         setInput('');
+//     };
+
+//     const handleEnter = (e) => {
+//         if (e.key === 'Enter') {
+//             submit();
+//         }
+//     };
+
+//     return (
+//         <div className="footer-container">
+//             <div className="input-group">
+//                 <input
+//                     type="text"
+//                     name="message"
+//                     value={input}
+//                     onChange={(e) => setInput(e.target.value)}
+//                     onKeyDown={handleEnter}
+//                     placeholder="Message Rikpal..."
+//                     className="form-control"
+//                 />
+//                 <span className="input-group-append">
+//                     <button type="button" onClick={submit} disabled={loader} className="btn btn-primary">
+//                         {loader ? <Loader /> : <FaTelegramPlane />}
+//                     </button>
+//                 </span>
+//             </div>
+//         </div>
+//     );
+// };
+
+// const Loader = () => (
+//     <div className="spinner-border spinner-border-sm" role="status">
+//         <span className="sr-only">Loading...</span>
+//     </div>
+// );
+
+// export default Footer;
+
+
 import React, { useState } from 'react';
-import { FaTelegramPlane } from 'react-icons/fa'; 
+import { FaTelegramPlane } from 'react-icons/fa';
 import { get_answer } from '../BackendConnection/ApiCall'; 
 
 const Footer = ({ sendMessage }) => {
     const [input, setInput] = useState('');
-    const [loader, setLoader] = useState(false); 
+    const [loader, setLoader] = useState(false);
 
     const submit = async () => {
         if (input.length === 0 || loader) return;
 
         try {
             setInput('');
-            setLoader(true); 
+            setLoader(true);
             await sendMessage(input);
         } catch (error) {
             console.error("Error sending message:", error);
@@ -179,22 +240,24 @@ const Footer = ({ sendMessage }) => {
     };
 
     return (
-        <div className="footer-container">
-            <div className="input-group">
-                <input
-                    type="text"
-                    name="message"
-                    value={input}
-                    onChange={(e) => setInput(e.target.value)}
-                    onKeyDown={handleEnter}
-                    placeholder="Message Rikpal..."
-                    className="form-control"
-                />
-                <span className="input-group-append">
-                    <button type="button" onClick={submit} disabled={loader} className="btn btn-primary">
-                        {loader ? <Loader /> : <FaTelegramPlane />}
-                    </button>
-                </span>
+        <div className="parent-container"> {/* Wrapper div to center the footer-container */}
+            <div className="footer-container">
+                <div className="input-group">
+                    <input
+                        type="text"
+                        name="message"
+                        value={input}
+                        onChange={(e) => setInput(e.target.value)}
+                        onKeyDown={handleEnter}
+                        placeholder="Message Rikpal..."
+                        className="form-control"
+                    />
+                    <span className="input-group-append">
+                        <button type="button" onClick={submit} disabled={loader} className="btn btn-primary">
+                            {loader ? <Loader /> : <FaTelegramPlane />}
+                        </button>
+                    </span>
+                </div>
             </div>
         </div>
     );

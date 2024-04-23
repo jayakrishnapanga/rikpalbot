@@ -1,4 +1,4 @@
-.footer-container {
+/* .footer-container {
   margin: 0 200px 10px 200px;
   padding:0px;
 }
@@ -17,7 +17,70 @@
 
 
 .footer-container {
-  flex-shrink: 0; /* Prevent the footer from shrinking */
-  /* Remove any margin or padding that might push the content up */
+  flex-shrink: 0;  
+}
+ */
+
+
+ 
+/* General styling for the parent container (assuming it wraps the footer-container) */
+.parent-container {
+  display: flex;
+  justify-content: center; /* Center children horizontally */
+  align-items: center; /* Center children vertically */
+  width: 100%; /* Full width to use the entire viewport width */
+  padding: 10px 0; /* Top and bottom padding */
 }
 
+.footer-container {
+  padding: 0 5px; /* Consistent padding across devices */
+  width: 50%; /* Occupies half of the parent container width */
+  margin: 0 auto 5px auto; /* Horizontally centered with margin-bottom */
+}
+
+.input-group {
+  width: 100%; 
+}
+
+.form-control, .btn-primary {
+  border-radius: 20px; /* Soft rounded corners for aesthetics */
+}
+
+/* Responsive styles for devices with widths up to 768px */
+@media (max-width: 768px) {
+  .input-group .btn {
+    padding: 8px 12px; /* Smaller padding for buttons on smaller screens */
+  }
+
+  .form-control, .btn-primary {
+    font-size: 0.9rem; /* Smaller font size for easier readability */
+  }
+
+  /* Adjust the footer container width and margin on smaller devices */
+  .footer-container {
+    width: 90%; /* Wider in smaller screens to use more space */
+    margin-bottom: 15px; /* Slightly less margin-bottom */
+  }
+}
+
+/* Additional Media Query for even smaller devices */
+@media (max-width: 480px) {
+  .footer-container, .input-group, .form-control, .btn-primary {
+    padding: 4px; /* Reduced padding for compact space */
+    font-size: 0.8rem; /* Further reduced font size for very small devices */
+  }
+
+  .input-group .btn {
+    padding: 6px 10px; /* Adjust button padding */
+  }
+
+  /* Further adjustment to footer container in very small screens */
+  .footer-container {
+    width: 100%; /* Use full width for very small devices */
+    margin-bottom: 5px; /* Minimal margin-bottom */
+  }
+}
+
+button, a, input[type="submit"], .clickable-element {
+  cursor: pointer; /* Ensures the cursor is a pointer on desktop browsers */
+}

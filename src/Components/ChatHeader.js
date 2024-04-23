@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '../chatheader.css';  // Ensure your paths are correct
 const ChatHeader = () => {
   return (
     <div className="card-header" style={{ backgroundColor: '#000000a3', display: 'flex', justifyContent: 'center' }}>
