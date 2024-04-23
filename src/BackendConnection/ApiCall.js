@@ -55,7 +55,7 @@ import axios from 'axios';
 export async function get_answer(updatedHistory) {
     try {
         const requestBody = { 'question': updatedHistory };
-        let response = await axios.post(`/api/getsearch`, requestBody);
+        let response = await axios.post(`http://43.205.114.54:4000/api/getsearch`, requestBody);
         let data = response.data;
         
         let result = {};
