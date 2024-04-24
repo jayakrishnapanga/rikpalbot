@@ -239,6 +239,7 @@ const ApexChart = ({ chartData }) => {
     }
 
     // Ensure that chartData.options.title is an object
+    console.log(chartData.options.title)
     if (!chartData.options.title) {
         chartData.options.title = { text: "Default Title" };
     } else if (typeof chartData.options.title.text !== 'string') {
@@ -276,7 +277,8 @@ const ApexChart = ({ chartData }) => {
                     options={chartData.options}
                     series={coloredSeries}
                     type={chartData.options.chart.type}
-                    width="100%"
+                    width="80%"
+                
                 />
             </div>
         </div>

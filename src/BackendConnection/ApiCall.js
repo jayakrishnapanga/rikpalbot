@@ -73,8 +73,38 @@ export async function get_answer(updatedHistory) {
     }
 }
 
+// function transformGraphData(graph) {
+//     const { chart, series, xaxis, yaxis } = graph;
+//     return {
+//         options: {
+//             chart: {
+//                 id: chart.type,
+//                 type: chart.type,
+//                 height: chart.height
+//             },
+//             title: {
+//                 text: title && title.text ? title.text : "Default Chart Title" 
+//             },
+//             xaxis: {
+//                 categories: xaxis.categories.filter(category => category != null),
+//                 title: {
+//                     text: xaxis.title.text
+//                 }
+//             },
+//             yaxis: {
+//                 title: {
+//                     text: yaxis.title.text
+//                 }
+//             }
+//         },
+//         series: series.map(s => ({
+//             name: s.name,
+//             data: s.data.filter(d => d != null)
+//         }))
+//     };
+// }
 function transformGraphData(graph) {
-    const { chart, series, xaxis, yaxis } = graph;
+    const { chart, series, xaxis, yaxis, title } = graph; // Assuming you have title here
     return {
         options: {
             chart: {
@@ -82,15 +112,18 @@ function transformGraphData(graph) {
                 type: chart.type,
                 height: chart.height
             },
+            title: {
+                text: title && title.text ? title.text : "Default Chart Title" // Check if title is provided, otherwise use a default
+            },
             xaxis: {
                 categories: xaxis.categories.filter(category => category != null),
                 title: {
-                    text: xaxis.title.text
+                    text: xaxis.title ? xaxis.title.text : "X-Axis"
                 }
             },
             yaxis: {
                 title: {
-                    text: yaxis.title.text
+                    text: yaxis.title ? yaxis.title.text : "Y-Axis"
                 }
             }
         },

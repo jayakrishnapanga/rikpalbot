@@ -2,13 +2,13 @@
 
 .chatbot-container {
   
-  height: 100vh; /* Set the height of the chat container to 100% of viewport height */
+  height: 100vh; 
   overflow-y: auto;
 }
 
 
 
-/* Optionally, you can also add padding to the chatbot-container */
+
 .chatbot-container {
-  padding: 10px; /* Add padding to create some space between the border and the content */
+  padding: 10px; 
 }
